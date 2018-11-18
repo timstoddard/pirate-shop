@@ -1,0 +1,32 @@
+@import '~src/app/scss/mixins.scss';
+@import '~src/app/scss/variables.scss';
+
+$red: rgb(255,65,54);
+
+.cartItem {
+  @include item(300px);
+
+  &__title {
+    margin-top: 5px;
+  }
+
+  &__type,
+  &__price,
+  &__quantity {
+    text-align: left;
+  }
+
+  &__quantity {
+    display: flex;
+
+    input {
+      margin-left: 5px;
+      max-width: 50px;
+      min-width: 50px;
+    }
+  }
+
+  &__removeButton {
+    @include button($red);
+  }
+}

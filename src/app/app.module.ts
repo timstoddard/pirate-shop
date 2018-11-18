@@ -8,6 +8,8 @@ import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { moviesReducer } from './store/reducers/movie.reducer';
 import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
+import { HeaderComponent } from './header/header.component';
+import { PirateIconComponent } from './header/pirate-icon/pirate-icon.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +18,8 @@ import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component
     CartComponent,
     CartItemComponent,
     CartSummaryComponent,
+    HeaderComponent,
+    PirateIconComponent,
   ],
   imports: [
     BrowserModule,

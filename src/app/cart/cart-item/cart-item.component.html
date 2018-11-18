@@ -1,12 +1,26 @@
-<div class="movie">
-  <h2 class="title">{{ movie.title }}</h2>
-  <div class="type">{{ movie.type }}</div>
-  <div class="price">${{ movie.price }}</div>
-  <input
-    type="number"
-    [value]="movie.quantity"
-    (input)="updateQuantity($event)">
-  <button (click)="removeMovie(movie.id)">
-    Remove From Cart
-  </button>
+<div class="cartItem">
+  <h2 class="cartItem__title">
+    {{ movie.title }}
+  </h2>
+  <div class="cartItem__content">
+    <div class="cartItem__details">
+      <div class="cartItem__type">
+        Format: {{ movie.type }}
+      </div>
+      <div class="cartItem__price">
+        Price: ${{ movie.price }}
+      </div>
+      <label class="cartItem__quantity">
+        <div>Quantity:</div>
+        <input
+          type="number"
+          [value]="movie.quantity"
+          (input)="updateQuantity($event)">
+      </label>
+    </div>
+    <button (click)="removeMovie(movie.id)"
+    class="cartItem__removeButton">
+      Remove
+    </button>
+  </div>
 </div>

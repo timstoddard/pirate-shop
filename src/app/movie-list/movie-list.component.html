@@ -1,8 +1,25 @@
-<div>
-  <div *ngFor="let movie of allMovies">
-    <h2 class="title">{{ movie.title }}</h2>
-    <div class="type">{{ movie.type }}</div>
-    <div class="price">${{ movie.price }}</div>
-    <button (click)="addMovie(movie.id)">Add To Cart</button>
+<h1 class="title">Available Movies</h1>
+<div class="movieList">
+  <div
+    *ngFor="let movie of allMovies"
+    class="movie">
+    <h2 class="movie__title">
+      {{ movie.title }}
+    </h2>
+    <div class="movie__content">
+      <div class="movie__details">
+        <div class="movie__type">
+          Format: {{ movie.type }}
+        </div>
+        <div class="movie__price">
+          Price: ${{ movie.price }}
+        </div>
+      </div>
+      <button
+        (click)="addMovie(movie.id)"
+        class="movie__addButton">
+        Add To Cart
+      </button>
+    </div>
   </div>
 </div>

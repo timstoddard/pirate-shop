@@ -1,14 +1,25 @@
-<div>
-  <h1>Cart</h1>
-  <ng-container *ngIf="(movies$ | async).length; else emptyCart">
+<div class="cart">
+  <h1 class="cart__title">Cart</h1>
+  <div
+    *ngIf="(movies$ | async).length; else emptyCart"
+    class="cart__items">
+    <app-cart-summary
+      [movies]="movies$ | async"
+      class="cart__summary">
+    </app-cart-summary>
+    <button
+      (click)="checkout()"
+      class="cart__checkout">
+      Checkout
+    </button>
     <app-cart-item
       *ngFor="let movie of (movies$ | async)"
       [movie]="movie"
       (quantityUpdated)="updateQuantity($event)"
-      (movieRemoved)="removeMovie($event)">
+      (movieRemoved)="removeMovie($event)"
+      class="cart__item">
     </app-cart-item>
-    <app-cart-summary [movies]="movies$ | async"></app-cart-summary>
-  </ng-container>
+  </div>
   <ng-template #emptyCart>
     <div>Your cart is empty! Add some items :)</div>
   </ng-template>

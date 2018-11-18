@@ -29,6 +29,10 @@ export class CartComponent implements OnDestroy {
     this.unsubscribe.unsubscribe();
   }
 
+  checkout() {
+    console.log('checkout');
+  }
+
   updateQuantity($event: any) {
     const { movieId, quantity } = $event;
     if (quantity > 0) {

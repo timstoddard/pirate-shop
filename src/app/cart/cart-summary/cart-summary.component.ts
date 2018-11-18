@@ -18,8 +18,12 @@ export class CartSummaryComponent {
       .reduce((prev: number, curr: Movie) => prev + curr.quantity, 0);
   }
 
+  getTotalBeforeDiscounts() {
+    return this.movies.reduce(getTotalPrice, 0);
+  }
+
   getTotalBeforeBulkDiscount() {
-    const rawTotal = this.movies.reduce(getTotalPrice, 0);
+    const rawTotal = this.getTotalBeforeDiscounts();
     const DVDDiscount = this.addedAllDVDs()
       ? this.getDVDDiscount()
       : 0;

@@ -1,0 +1,46 @@
+@import '~src/app/scss/mixins.scss';
+@import '~src/app/scss/variables.scss';
+
+$green: rgb(46,204,64);
+
+:host {
+  max-height: 100vh;
+  overflow: auto;
+  text-align: center;
+}
+
+.movieList {
+  padding: 0 30px 50px;
+}
+
+.movie {
+  @include item;
+
+  &__title {
+    margin-top: 5px;
+  }
+
+  &__type,
+  &__price {
+    text-align: left;
+  }
+
+  &__addButton {
+    @include button($green);
+  }
+
+  @media screen and (max-width: 800px) {
+    &__content {
+      flex-direction: column;
+    }
+
+    &__details {
+      margin-bottom: 20px;
+    }
+
+    &__type,
+    &__price {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import './variables.scss';
+
+@mixin item($max-width: 400px) {
+  border-radius: 5px;
+  box-shadow: 0 2px 10px 1px rgba(0,0,0,0.5);
+  margin: 0 auto 20px;
+  max-width: $max-width;
+  padding: 10px;
+  transition: $transition;
+
+  &:hover {
+    box-shadow: 0 4px 10px 1px rgba(0,0,0,0.5);
+  }
+
+  &__content {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+}
+
+@mixin button($color) {
+  background: $color;
+  border: 1px solid transparent;
+  border-radius: 100px;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  outline: 0;
+  padding: 5px 20px;
+  transition: $transition;
+
+  &:hover {
+    background: white;
+    border-color: $color;
+    color: $color;
+  }
+}

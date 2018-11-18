@@ -1,20 +1,45 @@
 <div class="summary">
+  <div
+    *ngIf="addedAllDVDs()"
+    class="summary__message">
+    <p>Thanks for adding all the DVDs to your cart! To show our appreciation, you get a 10% discount on all DVDs!</p>
+  </div>
+  <div
+    *ngIf="addedAllBluRays()"
+    class="summary__message">
+    <p>Thanks for adding all the Blu-Rays to your cart! To show our appreciation, you get a 15% discount on all Blu-Rays!</p>
+  </div>
+  <div
+    *ngIf="hasBulkDiscount()"
+    class="summary__message">
+    <p>Thanks for adding 100 or more movies to your cart! To show our appreciation, you get a 5% discount on all movies!</p>
+  </div>
   <div class="summary__items">
     Number of items: {{ getItemCount() }}
   </div>
-  <div *ngIf="addedAllDVDs()">
-    <p>Thanks for adding all the DVDs to your cart! To show our appreciation, you get a 10% discount on all DVDs!</p>
-    <div>DVD Discount: {{ getDVDDiscount() | currency }}</div>
+  <div
+    *ngIf="addedAllDVDs() || addedAllBluRays() || hasBulkDiscount()"
+    class="pretotal numbers">
+      <div>Total before discounts:</div> <div>{{ getTotalBeforeDiscounts() | currency }}</div>
   </div>
-  <div *ngIf="addedAllBluRays()">
-    <p>Thanks for adding all the Blu-Rays to your cart! To show our appreciation, you get a 15% discount on all Blu-Rays!</p>
-    <div>Blu-Ray Discount: {{ getBluRayDiscount() | currency }}</div>
+  <div class="summary__discounts">
+    <div
+      *ngIf="addedAllDVDs()"
+      class="numbers">
+      <div>DVD Discount:</div> <div>-{{ getDVDDiscount() | currency }}</div>
+    </div>
+    <div
+      *ngIf="addedAllBluRays()"
+      class="numbers">
+      <div>Blu-Ray Discount:</div> <div>-{{ getBluRayDiscount() | currency }}</div>
+    </div>
+    <div
+      *ngIf="hasBulkDiscount()"
+      class="numbers">
+      <div>Bulk Discount:</div> <div>-{{ getBulkDiscount() | currency }}</div>
+    </div>
   </div>
-  <div *ngIf="hasBulkDiscount()">
-    <p>Thanks for adding 100 or more movies to your cart! To show our appreciation, you get a 5% discount on all movies!</p>
-    <div>Bulk Discount: {{ getBulkDiscount() | currency }}</div>
-  </div>
-  <div class="summary__total">
-    Total: {{ getTotal() | currency }}
+  <div class="summary__total numbers">
+    <div><strong>Total:</strong></div> <div><strong>{{ getTotal() | currency }}</strong></div>
   </div>
 </div>

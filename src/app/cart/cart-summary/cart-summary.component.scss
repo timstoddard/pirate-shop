@@ -1,0 +1,12 @@
+.summary {
+  &__message {
+    color: rgb(150,150,150);
+    text-align: left;
+  }
+}
+
+.numbers {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}

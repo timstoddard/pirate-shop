@@ -1,0 +1,20 @@
+.header {
+  align-items: center;
+  background: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 4px 0;
+
+  &__icon {
+    background: white;
+    border-radius: 4px;
+    height: 20px;
+    width: 20px;
+  }
+
+  &__title {
+    font-size: 24px;
+    margin: 0 10px;
+  }
+}

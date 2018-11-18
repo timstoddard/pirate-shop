@@ -1,0 +1,25 @@
+@import '~src/app/scss/mixins.scss';
+
+$blue: rgb(0,116,217);
+$borderWidth: 2px;
+$margin: 20px;
+
+:host {
+  border: $borderWidth solid black;
+  border-right: 0;
+  margin: $margin 0;
+  max-height: calc(95vh - #{$borderWidth * 2} - #{$margin * 2});
+  min-height: calc(95vh - #{$borderWidth * 2} - #{$margin * 2});
+  max-width: 400px;
+  overflow: auto;
+  text-align: center;
+}
+
+.cart {
+  padding: 0 30px 50px;
+
+  &__checkout {
+    @include button($blue);
+    margin: 10px 0 20px;
+  }
+}
