@@ -1,0 +1,12 @@
+<div class="movie">
+  <h2 class="title">{{ movie.title }}</h2>
+  <div class="type">{{ movie.type }}</div>
+  <div class="price">{{ movie.price }}</div>
+  <input
+    type="number"
+    [value]="movie.quantity"
+    (input)="updateQuantity($event)">
+  <button (click)="removeMovie(movie.id)">
+    Remove From Cart
+  </button>
+</div>

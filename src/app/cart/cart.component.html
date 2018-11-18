@@ -1,0 +1,22 @@
+<div>
+  <h1>Cart</h1>
+  <ng-container *ngIf="(movies$ | async).length; else emptyCart">
+    <app-cart-item
+      *ngFor="let movie of (movies$ | async)"
+      [movie]="movie"
+      (quantityUpdated)="updateQuantity($event)"
+      (movieRemoved)="removeMovie($event)">
+    </app-cart-item>
+    <div class="summary">
+      <div class="items">
+        Number of items: {{ getItemCount(movies$ | async) }}
+      </div>
+      <div class="total">
+        Total: ${{ getTotal(movies$ | async) }}
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #emptyCart>
+    <div>Your cart is empty! Add some items :)</div>
+  </ng-template>
+</div>

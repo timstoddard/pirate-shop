@@ -1,0 +1,8 @@
+<div>
+  <div *ngFor="let movie of allMovies">
+    <h2 class="title">{{ movie.title }}</h2>
+    <div class="type">{{ movie.type }}</div>
+    <div class="price">${{ movie.price }}</div>
+    <button (click)="addMovie(movie.id)">Add To Cart</button>
+  </div>
+</div>
