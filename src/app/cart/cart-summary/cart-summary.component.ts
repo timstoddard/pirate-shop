@@ -18,7 +18,7 @@ export class CartSummaryComponent {
       .reduce((prev: number, curr: Movie) => prev + curr.quantity, 0);
   }
 
-  getTotal() {
+  getTotalBeforeBulkDiscount() {
     const rawTotal = this.movies.reduce(getTotalPrice, 0);
     const DVDDiscount = this.addedAllDVDs()
       ? this.getDVDDiscount()
@@ -30,6 +30,14 @@ export class CartSummaryComponent {
     return rawTotal - discount;
   }
 
+  getTotal() {
+    const rawTotal = this.getTotalBeforeBulkDiscount();
+    const bulkDiscount = this.hasBulkDiscount()
+      ? this.getBulkDiscount()
+      : 0;
+      return rawTotal - bulkDiscount;
+  }
+
   addedAllDVDs() {
     const dvds = this.movies.filter(movie => movie.type === 'DVD');
     return dvds.length === 3;
@@ -38,6 +46,10 @@ export class CartSummaryComponent {
   addedAllBluRays() {
     const blurays = this.movies.filter(movie => movie.type === 'Blu-Ray');
     return blurays.length === 3;
+  }
+
+  hasBulkDiscount() {
+    return this.getItemCount() >= 100;
   }
 
   getDVDDiscount() {
@@ -52,5 +64,9 @@ export class CartSummaryComponent {
       .filter(movie => movie.type === 'Blu-Ray')
       .reduce(getTotalPrice, 0);
     return BluRaysTotalPrice * 0.15;
+  }
+
+  getBulkDiscount() {
+    return this.getTotalBeforeBulkDiscount() * 0.05;
   }
 }

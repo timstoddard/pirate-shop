@@ -4,13 +4,17 @@
   </div>
   <div *ngIf="addedAllDVDs()">
     <p>Thanks for adding all the DVDs to your cart! To show our appreciation, you get a 10% discount on all DVDs!</p>
-    <div>DVD Discount: ${{ getDVDDiscount() }}</div>
+    <div>DVD Discount: {{ getDVDDiscount() | currency }}</div>
   </div>
   <div *ngIf="addedAllBluRays()">
     <p>Thanks for adding all the Blu-Rays to your cart! To show our appreciation, you get a 15% discount on all Blu-Rays!</p>
-    <div>Blu-Ray Discount: ${{ getBluRayDiscount() }}</div>
+    <div>Blu-Ray Discount: {{ getBluRayDiscount() | currency }}</div>
+  </div>
+  <div *ngIf="hasBulkDiscount()">
+    <p>Thanks for adding 100 or more movies to your cart! To show our appreciation, you get a 5% discount on all movies!</p>
+    <div>Bulk Discount: {{ getBulkDiscount() | currency }}</div>
   </div>
   <div class="summary__total">
-    Total: ${{ getTotal() }}
+    Total: {{ getTotal() | currency }}
   </div>
 </div>
