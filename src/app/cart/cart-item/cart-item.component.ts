@@ -12,6 +12,7 @@ export class CartItemComponent {
   @Output() quantityUpdated = new EventEmitter();
   @Output() movieRemoved = new EventEmitter();
 
+  // emits whenever the quantity of a movie in the cart is updated
   updateQuantity($event: any) {
     const quantity = parseInt($event.srcElement.value, 10);
     this.quantityUpdated.emit({
@@ -20,6 +21,7 @@ export class CartItemComponent {
     });
   }
 
+  // emits whenever a movie is removed from the cart
   removeMovie() {
     this.movieRemoved.emit(this.movie.id);
   }

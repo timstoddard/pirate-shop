@@ -15,7 +15,7 @@ export function moviesReducer(state: Movie[] = [], action: Action) {
       const { payload: removeId } = (action as RemoveMovie);
       return state.filter(movie => movie.id !== removeId);
     case ActionTypes.UPDATE_QUANTITY:
-    const { payload } = (action as UpdateQuantity);
+      const { payload } = (action as UpdateQuantity);
       return updateQuantity(state, payload.movieId, payload.quantity);
     default:
       return state;
@@ -26,6 +26,8 @@ export interface State {
   movies: Movie[];
 }
 
+// adds a movie to the list if it's not there, otherwise increments the quantity
+// of that movie by 1
 const addMovie = (state: Movie[], movieToAdd: Movie) => {
   const newState = [...state];
   for (let i = 0; i < newState.length; i++) {
@@ -38,6 +40,7 @@ const addMovie = (state: Movie[], movieToAdd: Movie) => {
   return [...state, movieToAdd];
 };
 
+// updates the quantity of the movie with the given id
 const updateQuantity = (state: Movie[], movieId: number, quantity: number) => {
   const newState = [...state];
   for (let i = 0; i < newState.length; i++) {

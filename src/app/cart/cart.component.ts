@@ -29,10 +29,13 @@ export class CartComponent implements OnDestroy {
     this.unsubscribe.unsubscribe();
   }
 
+  // called when the checkout button is clicked; if this were a real web app, it
+  // would probably initiate a POST request to send the cart details to the server
   checkout() {
     console.log('checkout');
   }
 
+  // dispatches an action to the global store to update the quantity of a movie
   updateQuantity($event: any) {
     const { movieId, quantity } = $event;
     if (quantity > 0) {
@@ -40,6 +43,7 @@ export class CartComponent implements OnDestroy {
     }
   }
 
+  // dispatches an action to the global store to remove a movie from the cart
   removeMovie(movieId: number) {
     this.store.dispatch(new RemoveMovie(movieId));
   }

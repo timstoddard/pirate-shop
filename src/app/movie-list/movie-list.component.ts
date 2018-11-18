@@ -22,6 +22,7 @@ export class MovieListComponent implements OnDestroy {
     this.unsubscribe.unsubscribe();
   }
 
+  // dispatches an action to the global store to add a movie to the cart
   addMovie(movieId: number) {
     this.store.dispatch(new AddMovie(movieId));
   }
