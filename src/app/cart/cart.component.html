@@ -7,14 +7,7 @@
       (quantityUpdated)="updateQuantity($event)"
       (movieRemoved)="removeMovie($event)">
     </app-cart-item>
-    <div class="summary">
-      <div class="items">
-        Number of items: {{ getItemCount(movies$ | async) }}
-      </div>
-      <div class="total">
-        Total: ${{ getTotal(movies$ | async) }}
-      </div>
-    </div>
+    <app-cart-summary [movies]="movies$ | async"></app-cart-summary>
   </ng-container>
   <ng-template #emptyCart>
     <div>Your cart is empty! Add some items :)</div>

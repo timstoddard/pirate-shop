@@ -39,16 +39,4 @@ export class CartComponent implements OnDestroy {
   removeMovie(movieId: number) {
     this.store.dispatch(new RemoveMovie(movieId));
   }
-
-  getItemCount(moviesInCart: Movie[]) {
-    return moviesInCart.reduce(
-      (prev: number, curr: Movie) => prev + curr.quantity,
-      0);
-  }
-
-  getTotal(moviesInCart: Movie[]) {
-    return moviesInCart.reduce(
-      (prev: number, curr: Movie) => prev + curr.quantity * curr.price,
-      0);
-  }
 }

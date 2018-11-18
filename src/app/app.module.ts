@@ -7,6 +7,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
 import { moviesReducer } from './store/reducers/movie.reducer';
+import { CartSummaryComponent } from './cart/cart-summary/cart-summary.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { moviesReducer } from './store/reducers/movie.reducer';
     MovieListComponent,
     CartComponent,
     CartItemComponent,
+    CartSummaryComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="summary">
+  <div class="summary__items">
+    Number of items: {{ getItemCount() }}
+  </div>
+  <div *ngIf="addedAllDVDs()">
+    <p>Thanks for adding all the DVDs to your cart! To show our appreciation, you get a 10% discount on all DVDs!</p>
+    <div>DVD Discount: ${{ getDVDDiscount() }}</div>
+  </div>
+  <div *ngIf="addedAllBluRays()">
+    <p>Thanks for adding all the Blu-Rays to your cart! To show our appreciation, you get a 15% discount on all Blu-Rays!</p>
+    <div>Blu-Ray Discount: ${{ getBluRayDiscount() }}</div>
+  </div>
+  <div class="summary__total">
+    Total: ${{ getTotal() }}
+  </div>
+</div>
