@@ -11,7 +11,7 @@ const getTotalPrice = (prev: number, curr: Movie) =>
   styleUrls: ['./cart-summary.component.scss']
 })
 export class CartSummaryComponent {
-  @Input() movies: Movie[];
+  @Input() movies: Movie[] = [];
 
   // returns a count of how many items are in the cart
   getItemCount() {
